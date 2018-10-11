@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour {
 
         transform.Rotate(0, X, 0);
 
+        transform.Rotate(0, 0, Y);
+
         velX = Input.GetAxis("Horizontal");
         velY = Input.GetAxis("Vertical");
 
