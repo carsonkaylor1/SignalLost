@@ -1,9 +1,24 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 01fac874bfb10ae408a64973fc5b4759
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Material_001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Icosphere
+    7400000: Default Take
+    9500000: //RootNode
+=======
 guid: 946fc74bb3689194a8823c68f62746dd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     2186277476908879412: ImportLogs
+>>>>>>> master
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -56,7 +71,11 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
+<<<<<<< HEAD
+    hasPreviousCalculatedGlobalScale: 1
+=======
     hasPreviousCalculatedGlobalScale: 0
+>>>>>>> master
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

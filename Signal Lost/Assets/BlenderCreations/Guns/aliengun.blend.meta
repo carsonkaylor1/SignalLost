@@ -1,24 +1,24 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 5534a85f98f85d9449c7b5d3ecfbafce
+guid: 17fd41665dc5dc24eb04ff47bc41531d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cylinder
+    100004: Torus_002
     400000: //RootNode
-    2100000: Material_001
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Icosphere_001
+    400002: Cylinder
+    400004: Torus_002
+    2100000: Material_003
+    2100002: Material_002
+    2300000: Cylinder
+    2300002: Torus_002
+    3300000: Cylinder
+    3300002: Torus_002
+    4300000: Cylinder
+    4300002: Torus_002
     7400000: Default Take
     9500000: //RootNode
-=======
-guid: 4b5901c0fb92cc0439302e96b025c252
-ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    2186277476908879412: ImportLogs
->>>>>>> master
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -71,11 +71,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-<<<<<<< HEAD
     hasPreviousCalculatedGlobalScale: 1
-=======
-    hasPreviousCalculatedGlobalScale: 0
->>>>>>> master
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
