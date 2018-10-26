@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 735439519}
   - component: {fileID: 735439521}
   - component: {fileID: 735439520}
+  - component: {fileID: 735439522}
   m_Layer: 0
   m_Name: SM_Robot_1_001
   m_TagString: Untagged
@@ -336,6 +337,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 735439518}
   m_Mesh: {fileID: 4300002, guid: 0136e4f317ce66f4caa44b3a122fba6d, type: 3}
+--- !u!95 &735439522
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 735439518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f29d7dd5b0d38e64482fa4f66632f27c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &805321977
 GameObject:
   m_ObjectHideFlags: 0
