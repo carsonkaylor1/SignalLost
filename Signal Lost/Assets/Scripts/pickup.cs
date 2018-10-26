@@ -8,6 +8,7 @@ public class pickup : MonoBehaviour {
 
     public int health = 5;
     public int armor = 0;
+	public int lastDamageFrame = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -35,25 +36,29 @@ public class pickup : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Damage"))
         {
-            if (armor == 0)
-            {
-                health -= 5;
-                if (health <= 0)
-                {
-                    print("Player is dead");
-                    //player dies.
-                }
-            }
-            else
-            {
-                armor -= 5;
-                if (armor < 0)
-                {
-                    armor = 0;
-                }
-            }
-            other.gameObject.SetActive(false);
-        }
+			if (lastDamageFrame + 300 <= Time.frameCount)
+			{
+				lastDamageFrame = Time.frameCount;
+				if (armor == 0)
+				{
+					health -= 5;
+					if (health <= 0)
+					{
+						print("Player is dead");
+						//player dies.
+					}
+				}
+				else
+				{
+					armor -= 5;
+					if (armor < 0)
+					{
+						armor = 0;
+					}
+				}
+				//other.gameObject.SetActive(false);
+			}
+		}
     }
 
     private void OnDamage(Collider other)
