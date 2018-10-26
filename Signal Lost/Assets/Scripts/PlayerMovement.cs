@@ -32,6 +32,10 @@ public class PlayerMovement : MonoBehaviour {
         velX = Input.GetAxis("Horizontal");
         velY = Input.GetAxis("Vertical");
 
+        if(Input.GetButton("Horizontal"))
+        {
+
+        }
         Vector3 forwardVel = transform.forward * maxVel * -velX;
         Vector3 horizontalVel = transform.right * maxVel * velY;
         Vector3 sumVel = forwardVel + horizontalVel;
