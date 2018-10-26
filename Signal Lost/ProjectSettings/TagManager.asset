@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Projectile
   - Pick Up
+  - Damage
   layers:
   - Default
   - TransparentFX
