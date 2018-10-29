@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 158274309}
   - component: {fileID: 158274310}
   m_Layer: 0
-  m_Name: SM_Robot_001_Prefab
+  m_Name: player bot
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   armor: 0
+  lastDamageFrame: 0
 --- !u!54 &158274308
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -744,6 +745,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &862635184
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 335.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 99.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 244.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003195397585354, guid: b39acab5784827d46993e170694c07b8, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018906436084642, guid: b39acab5784827d46993e170694c07b8,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 158274306}
+    - target: {fileID: 114018906436084642, guid: b39acab5784827d46993e170694c07b8,
+        type: 2}
+      propertyPath: MaxSightDist
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018906436084642, guid: b39acab5784827d46993e170694c07b8,
+        type: 2}
+      propertyPath: MoveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b39acab5784827d46993e170694c07b8, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &940051252
 GameObject:
   m_ObjectHideFlags: 0
