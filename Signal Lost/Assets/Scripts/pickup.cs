@@ -6,7 +6,7 @@ public class pickup : MonoBehaviour {
 
     private Rigidbody rb;
 
-    public int health = 5;
+    public int health = 15;
     public int armor = 0;
 	public int lastDamageFrame = 0;
 
@@ -37,7 +37,7 @@ public class pickup : MonoBehaviour {
         if (other.gameObject.CompareTag("Damage"))
         {
             int damVal = 0;
-			if (lastDamageFrame + 300 <= Time.frameCount)
+			if (lastDamageFrame + 300 <= Time.frameCount) //5 seconds of invincibility after touching a damage source
 			{
                 switch(objectName)
                 {
@@ -63,6 +63,8 @@ public class pickup : MonoBehaviour {
 				}
 				else
 				{
+                    /* If incoming damage exceeds remaining armor, rollover 
+                     * remaining damage into remaining health */
                     int remainingDamage = 0;
                     if (armor < damVal)
                     {
