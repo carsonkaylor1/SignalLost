@@ -5,7 +5,7 @@ using UnityEngine;
 public class pickup : MonoBehaviour {
 
     private Rigidbody rb;
-
+    
     public GameObject player;
     public int health = 15;
     public int armor = 0;
@@ -37,7 +37,7 @@ public class pickup : MonoBehaviour {
         if (other.gameObject.CompareTag("Damage"))
         {
             int damVal = 0;
-			if (lastDamageFrame + 300 <= Time.frameCount) //5 seconds of invincibility after touching a damage source
+			if (lastDamageFrame + 120 <= Time.frameCount) //2 seconds of invincibility after touching a damage source
 			{
                 if (objectName.Contains("Enemy"))
                 {
@@ -59,6 +59,9 @@ public class pickup : MonoBehaviour {
 					{
 						print("Player is dead");
                         player.SetActive(false);
+                        rb.useGravity = false;
+                        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
+                        GetComponent<PlayerMovement>().enabled = false;
 					}
 				}
 				else
