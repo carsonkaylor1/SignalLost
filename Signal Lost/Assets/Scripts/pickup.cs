@@ -17,14 +17,14 @@ public class pickup : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        string objectName = other.name;
         if (other.gameObject.CompareTag("Pick Up")) //create a tag (under the name of an object) and set all pickups to Pick Up
         {
-            string objectName = other.name;
             switch (objectName)
             {
                 case "healthUp":
                     print("Health increased to " + health);
-                    health += 5;
+                    health += 15;
                     break;
                 case "armorUp":
                     print("Armor increased to " + armor);
@@ -36,12 +36,25 @@ public class pickup : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Damage"))
         {
+            int damVal = 0;
 			if (lastDamageFrame + 300 <= Time.frameCount)
 			{
+                switch(objectName)
+                {
+                    case "Enemy": //Damage taken on contact with enemy
+                        damVal = 10;
+                        break;
+                    case "Bullet": //Damage taken on contact with enemy projectile
+                        damVal = 5;
+                        break;
+                    case "Environment": //Damage taken on contact with environmental hazards
+                        damVal = 7;
+                        break;
+                }
 				lastDamageFrame = Time.frameCount;
 				if (armor == 0)
 				{
-					health -= 5;
+					health -= damVal;
 					if (health <= 0)
 					{
 						print("Player is dead");
@@ -50,11 +63,17 @@ public class pickup : MonoBehaviour {
 				}
 				else
 				{
-					armor -= 5;
+                    int remainingDamage = 0;
+                    if (armor < damVal)
+                    {
+                        remainingDamage = damVal - armor;
+                    }
+					armor -= damVal;
 					if (armor < 0)
 					{
 						armor = 0;
 					}
+                    health -= remainingDamage;
 				}
 				//other.gameObject.SetActive(false);
 			}
