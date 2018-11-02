@@ -20,16 +20,15 @@ public class pickup : MonoBehaviour {
         string objectName = other.name;
         if (other.gameObject.CompareTag("Pick Up")) //create a tag (under the name of an object) and set all pickups to Pick Up
         {
-            switch (objectName)
+            if (objectName.Contains("healthUp"))
             {
-                case "healthUp":
-                    print("Health increased to " + health);
-                    health += 15;
-                    break;
-                case "armorUp":
-                    print("Armor increased to " + armor);
-                    armor += 5;
-                    break;
+                print("Health increased to " + health);
+                health += 15;
+            }
+            else if (objectName.Contains("armorUp"))
+            {
+                print("Armor increased to " + armor);
+                armor += 5;
             }
             other.gameObject.SetActive(false);
         }
@@ -39,17 +38,17 @@ public class pickup : MonoBehaviour {
             int damVal = 0;
 			if (lastDamageFrame + 300 <= Time.frameCount) //5 seconds of invincibility after touching a damage source
 			{
-                switch(objectName)
+                if (objectName.Contains("Enemy"))
                 {
-                    case "Enemy": //Damage taken on contact with enemy
-                        damVal = 10;
-                        break;
-                    case "Bullet": //Damage taken on contact with enemy projectile
-                        damVal = 5;
-                        break;
-                    case "Environment": //Damage taken on contact with environmental hazards
-                        damVal = 7;
-                        break;
+                    damVal = 10;
+                }
+                else if (objectName.Contains("Bullet"))
+                {
+                    damVal = 5;
+                }
+                else if (objectName.Contains("Environment"))
+                {
+                    damVal = 7;
                 }
 				lastDamageFrame = Time.frameCount;
 				if (armor == 0)
