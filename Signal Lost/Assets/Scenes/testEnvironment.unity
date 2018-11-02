@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 270229180}
   - component: {fileID: 270229179}
   m_Layer: 0
-  m_Name: damageCube
+  m_Name: Enemy
   m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
