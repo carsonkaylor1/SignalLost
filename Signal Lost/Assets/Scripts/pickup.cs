@@ -6,6 +6,7 @@ public class pickup : MonoBehaviour {
 
     private Rigidbody rb;
 
+    public GameObject player;
     public int health = 15;
     public int armor = 0;
 	public int lastDamageFrame = 0;
@@ -57,7 +58,7 @@ public class pickup : MonoBehaviour {
 					if (health <= 0)
 					{
 						print("Player is dead");
-						//player dies.
+                        player.SetActive(false);
 					}
 				}
 				else
