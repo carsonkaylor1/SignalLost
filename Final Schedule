@@ -1,3 +1,13 @@
 1. Skybox
-2. Key pickup
-3. health, armor pickup
+2. Seperate scene for room
+3. health, armor pickup,  Key pickup, jetpack(add a jump)
+4. ui element for rocks collected
+5. two enemies, reactor boss
+`  1. big slug enemy (ai for this enemy)
+   2. regular soldier that shoots projectile at you (ai for this enemy)
+   3. boss is the room, with 10-20 glowing blob turrets on the walls, circuit board in the room with big health bar to shoot at
+6. rock formations
+7. table
+8. turning wheel aniamtion for the rover 
+9. particle effect for the jetpack 
+10. 
