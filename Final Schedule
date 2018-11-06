@@ -10,4 +10,19 @@
 7. table
 8. turning wheel aniamtion for the rover 
 9. particle effect for the jetpack 
-10. 
+10. text box summarizing story after you hit play
+11. intro scene to collect rocks in hole
+12. one little alien building
+13. reactor room with turrets and big circuit board
+14. alien weapon box with gun on it
+15. add a jump
+16. the jetpack is a double jump
+17. jump puzzle for key 
+18. the interior area as its own scene
+
+the reactor room is locked by the key and is the indoor area
+caves are optional with higher health enemies and the jetpack pickup
+every scene transition counts as a checkpoint
+
+
+progression: main menu -> intro text -> pick up rock scene -> main plain area near first weapon -> puzzle area -> reactor room area 
