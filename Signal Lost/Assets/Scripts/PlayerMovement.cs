@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour {
 
     //Most of this is reused from the in class example
 
-    float velX, velY;
-    float X, Y;
+    float velX, velY, velZ;
+    float X, Y, Z;
 
     public float maxVel;
 
@@ -26,16 +26,20 @@ public class PlayerMovement : MonoBehaviour {
     {
         X = Input.GetAxis("Mouse X") * mouseSpeed;
         Y = Input.GetAxis("Mouse Y") * mouseSpeed;
+        Z = 0;
 
         transform.Rotate(0, X, 0);
 
         velX = Input.GetAxis("Horizontal");
         velY = Input.GetAxis("Vertical");
 
-        if(Input.GetButton("Horizontal"))
+        if (Input.GetKey("space"))
         {
-
+            float jumpSpeed = 100.0f;
+            rigid.AddForce(Vector3.up * jumpSpeed);
         }
+
+        Vector3 verticalVel = transform.up * maxVel * velZ;
         Vector3 forwardVel = transform.forward * maxVel * -velX;
         Vector3 horizontalVel = transform.right * maxVel * velY;
         Vector3 sumVel = forwardVel + horizontalVel;
