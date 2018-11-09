@@ -1,25 +1,25 @@
-1. Skybox
-2. Seperate scene for room
-3. health, armor pickup,  Key pickup, jetpack(add a jump)
-4. ui element for rocks collected
+1. Skybox (Drew)
+2. Seperate scene for room (Carson)
+3. health, armor pickup,  Key pickup, jetpack(add a jump) (Drew)(Models: Christine, Carson)
+4. ui element for rocks collected  (Tristan)
 5. two enemies, reactor boss
-`  1. big slug enemy (ai for this enemy)
-   2. regular soldier that shoots projectile at you (ai for this enemy)
-   3. boss is the room, with 10-20 glowing blob turrets on the walls, circuit board in the room with big health bar to shoot at
-6. rock formations
-7. table
-8. turning wheel aniamtion for the rover 
-9. particle effect for the jetpack 
-10. text box summarizing story after you hit play
-11. intro scene to collect rocks in hole
-12. one little alien building
-13. reactor room with turrets and big circuit board
-14. alien weapon box with gun on it
-15. add a jump
-16. the jetpack is a double jump
-17. jump puzzle for key 
-18. the interior area as its own scene
-19. improve rover model 
+`  1. big slug enemy (ai for this enemy) (ai Tristan) (Model: Christine)
+   2. regular soldier that shoots projectile at you (ai for this enemy- Tristan) (Model: Carson)
+   3. boss is the room, with 10-20 glowing blob turrets on the walls, circuit board in the room with big health bar to shoot at (Turrets shooting at you: Tristan)(Model for room: Carson,for Circuit Box: Christine)
+6. rock formations (Model: Christine)
+7. ////
+8. turning wheel aniamtion for the rover (Carson)
+9. particle effect for the jetpack (Christine)
+10. text box summarizing story after you hit play (Tristan)
+11. intro scene to collect rocks in hole (Hole Scene: Carson)
+12. one little alien building (Christine)
+13. ///
+14. alien weapon box with gun on it (Carson)
+15. add a jump (Drew)
+16. the jetpack is a double jump (Drew)
+17. jump puzzle for key (Andy)
+18. the interior area as its own scene (Tristan)
+19. improve rover model (Carson)
 
 the reactor room is locked by the key and is the indoor area
 caves are optional with higher health enemies and the jetpack pickup

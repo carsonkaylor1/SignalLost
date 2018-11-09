@@ -33,13 +33,13 @@ public class Shoot : MonoBehaviour {
 		tempProjectile = Instantiate(projectilePrefab) as GameObject;
 		
 		// Set projectiles position to in front of shooting point
-		tempProjectile.transform.position = transform.position + shootingPoint.transform.right;
+		tempProjectile.transform.position = transform.position + shootingPoint.transform.forward;
 
 		// Get the rigidbody for the projectile so we can apply force to it
 		Rigidbody projectile = tempProjectile.GetComponent<Rigidbody>();
 
 		// Apply velocity to created projectle gameobject to move from the tip of shooting point at desired speed
-		projectile.velocity = shootingPoint.transform.right * projectileSpeed;
+		projectile.velocity = shootingPoint.transform.forward * projectileSpeed;
 
 		Destroy(tempProjectile);
 	}

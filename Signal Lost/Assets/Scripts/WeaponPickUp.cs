@@ -12,9 +12,9 @@ public class WeaponPickUp : MonoBehaviour {
         myWeapon.SetActive(false);
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _collider)
     {
-        if(other.gameObject.tag == "Player")
+        if(_collider.gameObject.tag == "Player")
             {
             myWeapon.SetActive(true);
             weaponOnGround.SetActive(false);
