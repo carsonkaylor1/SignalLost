@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Pick Up
   - Damage
+  - Rock
+  - BlockRock
   layers:
   - Default
   - TransparentFX
