@@ -31,6 +31,11 @@ public class pickup : MonoBehaviour {
                 print("Armor increased to " + armor);
                 armor += 5;
             }
+            else if (objectName.Contains("Double Jump"))
+            {
+                print("Double Jump acquired");
+                PlayerMovement.doubleJump = true;
+            }
             other.gameObject.SetActive(false);
         }
 
