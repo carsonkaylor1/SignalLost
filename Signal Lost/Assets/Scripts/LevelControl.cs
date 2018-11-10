@@ -8,7 +8,6 @@ public class LevelControl : MonoBehaviour {
     public int index;
     public string levelName;
 
-	// Use this for initialization
 	void OnTriggerEnter (Collider other) {
         if (other.CompareTag("Player"))
         {

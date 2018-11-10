@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Pick Up
   - Damage
+  - Ground
   layers:
   - Default
   - TransparentFX
