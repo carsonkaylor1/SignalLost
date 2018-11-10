@@ -5,6 +5,8 @@ using UnityEngine;
 public class pickup : MonoBehaviour {
 
     private Rigidbody rb;
+    //reference to PlayerHealth script
+    private PlayerHealth p;
     
     public GameObject player;
     public int health = 15;
@@ -13,23 +15,27 @@ public class pickup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //reference to PlayerHealth script
+        p = FindObjectOfType<PlayerHealth>();
         rb = GetComponent<Rigidbody>();
 	}
 
     private void OnTriggerEnter(Collider other)
     {
+        print("Trigger is entered");
         string objectName = other.name;
         if (other.gameObject.CompareTag("Pick Up")) //create a tag (under the name of an object) and set all pickups to Pick Up
         {
+            print("On pickup");
             if (objectName.Contains("healthUp"))
             {
-                print("Health increased to " + health);
-                health += 15;
+                p.healthChange(50);
+                print("Health increased to " + p.currentHealth);
             }
             else if (objectName.Contains("armorUp"))
             {
-                print("Armor increased to " + armor);
-                armor += 5;
+                p.armorChange(50);
+                print("Armor increased to " + p.currentArmor);
             }
             else if (objectName.Contains("Double Jump"))
             {
@@ -57,9 +63,15 @@ public class pickup : MonoBehaviour {
                     damVal = 7;
                 }
 				lastDamageFrame = Time.frameCount;
+                //Added call to TakeDamage to handle following conditionals
+                p.TakeDamage(damVal);
+                /*
+                //TODO: I think this if/else statement here is also handled in the PlayerHealth script
 				if (armor == 0)
 				{
-					health -= damVal;
+					//p.currentHealth -= damVal;
+                    //TODO: I feel like this can be added into PlayerHealth now and handled there
+                    //I had already implemented a "weaker" death there
 					if (health <= 0)
 					{
 						print("Player is dead");
@@ -68,11 +80,12 @@ public class pickup : MonoBehaviour {
                         rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
                         GetComponent<PlayerMovement>().enabled = false;
 					}
+                    
 				}
 				else
 				{
-                    /* If incoming damage exceeds remaining armor, rollover 
-                     * remaining damage into remaining health */
+                    // If incoming damage exceeds remaining armor, rollover 
+                    // remaining damage into remaining health 
                     int remainingDamage = 0;
                     if (armor < damVal)
                     {
@@ -86,6 +99,7 @@ public class pickup : MonoBehaviour {
                     health -= remainingDamage;
 				}
 				//other.gameObject.SetActive(false);
+                */
 			}
 		}
     }
