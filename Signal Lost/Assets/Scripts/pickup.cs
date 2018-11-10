@@ -56,7 +56,7 @@ public class pickup : MonoBehaviour {
                 }
                 else if (objectName.Contains("Bullet"))
                 {
-                    damVal = 5;
+                    damVal = 50; //changed to 50 from 5
                 }
                 else if (objectName.Contains("Environment"))
                 {

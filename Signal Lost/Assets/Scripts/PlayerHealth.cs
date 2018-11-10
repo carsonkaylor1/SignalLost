@@ -17,9 +17,10 @@ public class PlayerHealth : MonoBehaviour {
 	public RectTransform healthBar;
 	public RectTransform armorBar;
 	public GameObject player;
+	private EnemyRanged enemyRanged;
 
 
-	bool isDead;
+	bool isDead = false;
 
 
 	// Use this for initialization
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour {
 		currentHealth = 100;
 		currentArmor = 100;
 		player = GetComponent<GameObject>();
+		enemyRanged = FindObjectOfType<EnemyRanged>();
 	
 		armorBar.sizeDelta = new Vector2(currentArmor, armorBar.sizeDelta.y);
 		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
@@ -80,6 +82,7 @@ public class PlayerHealth : MonoBehaviour {
 		currentHealth -= dmg;
 		if(currentHealth <= 0 && !isDead)
 		{
+			print("Dying");
 			PlayerDeath();
 		}
 		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
@@ -90,6 +93,21 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		isDead = true;
 		print("You're dead");
-		Destroy(player);
+		//GameObject.Destroy(player.gameObject,0.5f);
+	}
+
+
+	// This function is called whenever there is a collision detected
+	public void OnCollisionEnter(Collision col)
+	{
+		// If the object colliding with Enemy is tagged "projectile"
+		if(col.gameObject.tag == "Projectile")
+		{
+			// Get the amount of damage (from the Shoot script) this particular projectile inflicts and damage enemy
+			int dmgTaken = enemyRanged.dmg;
+			
+			TakeDamage(dmgTaken);
+			//print("You took " + dmgTaken + " damage.");
+		}
 	}
 }
