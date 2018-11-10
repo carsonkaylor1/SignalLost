@@ -75,8 +75,8 @@ GameObject:
   - component: {fileID: 23264109820280824}
   - component: {fileID: 136929263762005434}
   - component: {fileID: 54162907706376978}
-  - component: {fileID: 136402735593170024}
   - component: {fileID: 114840638942438832}
+  - component: {fileID: 114533401516318546}
   m_Layer: 0
   m_Name: enemyBasic
   m_TagString: Enemy
@@ -230,6 +230,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114533401516318546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766125537199358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dcbb4e6d731c44c89eec4c64d8e2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 100
+  healthBar: {fileID: 224596047886635840}
+  shot: {fileID: 0}
 --- !u!114 &114689271011752854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,24 +273,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  MoveSpeed: 3
+  MoveSpeed: 1.5
   MaxSightDist: 20
   MaxDist: 10
-  MinDist: 1
+  minDist: 1
+  meleeDistance: 1
+  hitTime: 2
+  isMeleeRange: 0
   shootDistance: 0
---- !u!136 &136402735593170024
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1766125537199358}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  isMeleeCoStarted: 0
 --- !u!136 &136929263762005434
 CapsuleCollider:
   m_ObjectHideFlags: 1
