@@ -17,9 +17,10 @@ public class PlayerHealth : MonoBehaviour {
 	public RectTransform healthBar;
 	public RectTransform armorBar;
 	public GameObject player;
+	private EnemyRanged enemyRanged;
 
 
-	bool isDead;
+	bool isDead = false;
 
 
 	// Use this for initialization
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour {
 		currentHealth = 100;
 		currentArmor = 100;
 		player = GetComponent<GameObject>();
+		enemyRanged = FindObjectOfType<EnemyRanged>();
 	
 		armorBar.sizeDelta = new Vector2(currentArmor, armorBar.sizeDelta.y);
 		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
@@ -68,18 +70,20 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		print(dmg + " damage taken!");
 		//If theres enough armor to absorb the full hit, subtract incoming damage from armor value
-		if(this.currentArmor - dmg > 0)
+		if((this.currentArmor - dmg) > 0)
 		{
 			currentArmor -= dmg;
 		}
-		else //If theres not enough armor, modify incoming dmg value to account for bleed through damage
+		else if(this.currentArmor - dmg <= 0)//If theres not enough armor, modify incoming dmg value to account for bleed through damage
 		{
 			dmg -= currentArmor;
 			currentArmor = 0;
+			currentHealth -= dmg;
 		}
-		currentHealth -= dmg;
+		
 		if(currentHealth <= 0 && !isDead)
 		{
+			print("Dying");
 			PlayerDeath();
 		}
 		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
@@ -90,6 +94,22 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		isDead = true;
 		print("You're dead");
-		Destroy(player);
+		//GameObject.Destroy(player.gameObject,0.5f);
+	}
+
+
+	// This function is called whenever there is a collision detected
+	//This can probably be edited later...Calling enemyRanged seems wrong
+	public void OnCollisionEnter(Collision col)
+	{
+		// If the object colliding with Enemy is tagged "projectile"
+		if(col.gameObject.tag == "Projectile")
+		{
+			// Get the amount of damage (from the Shoot script) this particular projectile inflicts and damage enemy
+			int dmgTaken = enemyRanged.dmg;
+			
+			TakeDamage(dmgTaken);
+			//print("You took " + dmgTaken + " damage.");
+		}
 	}
 }

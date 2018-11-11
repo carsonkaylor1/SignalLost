@@ -244,7 +244,6 @@ GameObject:
   - component: {fileID: 4179087917205540}
   - component: {fileID: 33375677802721508}
   - component: {fileID: 23371175113891144}
-  - component: {fileID: 65473444131779110}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -282,6 +281,7 @@ GameObject:
   - component: {fileID: 136649979226401296}
   - component: {fileID: 114100234519901596}
   - component: {fileID: 114331162683032834}
+  - component: {fileID: 114151820677541436}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2968,18 +2968,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65473444131779110
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1422152729457080}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81817461289168364
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3099,6 +3087,21 @@ MonoBehaviour:
   spinx: 0
   spiny: 0
   spinz: 10
+--- !u!114 &114151820677541436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1446627162344298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3adffd510c6cfb49b6148717f1672d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1446627162344298}
+  health: 15
+  armor: 0
+  lastDamageFrame: 0
 --- !u!114 &114282134480743020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3137,8 +3140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008468d904bea8e409a3c39ee175a55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 50
+  startingHealth: 100
   startingArmor: 0
+  maxArmor: 200
+  maxHealth: 200
   currentArmor: 100
   currentHealth: 100
   healthBar: {fileID: 224187928079279394}
@@ -3505,7 +3510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 106.4}
+  m_AnchoredPosition: {x: 64.5, y: 37.3}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &224312793321477348
@@ -3544,6 +3549,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 77.9}
+  m_AnchoredPosition: {x: 64.5, y: 72.100006}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0, y: 0}
