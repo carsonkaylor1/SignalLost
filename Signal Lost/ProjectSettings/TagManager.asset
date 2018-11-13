@@ -10,6 +10,8 @@ TagManager:
   - Damage
   - Rock
   - BlockRock
+  - computer
+  - computerSound
   layers:
   - Default
   - TransparentFX

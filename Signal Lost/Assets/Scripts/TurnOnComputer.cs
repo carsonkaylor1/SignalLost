@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerOn : MonoBehaviour {
+public class TurnOnComputer : MonoBehaviour {
 
 	// Use this for initialization
-	void OnTriggerEnter (Collider other) {
+	void Start () {
 		
 	}
 	
-	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }
