@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
  using UnityEngine.SceneManagement;
 
+
+//Place script on other object, not rover
 public class SwitchSceneAfterTime : MonoBehaviour {
 
-    public int delay = 4;
-    public string newLevel = "testEnvironment";
+    public float delay;
+    public string newLevel;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("computer"))
+        if (other.CompareTag("Player")) //Make sure rover has Player tag
         {
-            SceneManager.LoadScene(newLevel);
-            // StartCoroutine(LoadLevelAfterDelay(delay));
+            StartCoroutine(LoadLevelAfterDelay(delay));
         }
     }
-   // IEnumerator LoadLevelAfterDelay(int delay)
-   // {
-    //    yield return new WaitForSeconds(delay);
-    //    SceneManager.LoadScene(newLevel);
-   // }
+    IEnumerator LoadLevelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(newLevel);
+    }
 
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RockActivate : MonoBehaviour {
 
-	// Use this for initialization
+	//Script for the rock blocking pathway in underground scene
 	void OnTriggerEnter (Collider other) {
 
         if(other.gameObject.CompareTag("BlockRock"))
