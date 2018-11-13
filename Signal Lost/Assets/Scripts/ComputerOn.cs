@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerOff : MonoBehaviour {
+public class ComputerOn : MonoBehaviour {
 
 	// Use this for initialization
 	

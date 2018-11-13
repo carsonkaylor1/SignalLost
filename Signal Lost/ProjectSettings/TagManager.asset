@@ -4,18 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Projectile
-  - Pick Up
-  - Damage
-<<<<<<< HEAD
-  - Rock
-  - BlockRock
   - computer
-  - computerSound
-=======
-  - Ground
->>>>>>> 4c96ee5108f45f658135e5d3c9fd584411ed6743
   layers:
   - Default
   - TransparentFX
@@ -25,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

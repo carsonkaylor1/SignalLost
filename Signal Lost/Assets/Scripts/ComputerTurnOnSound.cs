@@ -25,6 +25,8 @@ public class ComputerTurnOnSound : MonoBehaviour
         {
             if(!soundSource.isPlaying)
             soundSource.PlayOneShot(soundClip, 0.75f);
+            
+            
         }
 
 
