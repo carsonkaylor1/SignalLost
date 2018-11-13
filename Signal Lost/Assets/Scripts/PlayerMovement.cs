@@ -10,8 +10,12 @@ public class PlayerMovement : MonoBehaviour {
     float X, Y, Z;
 
     public float maxVel;
-
+    public float jumpSpeed = 100.0f;
     public float mouseSpeed = 3;
+    public static bool doubleJump = false;
+
+    private bool touchGround = true;
+    private bool canDoubleJump = false;
 
     Rigidbody rigid;
 
@@ -22,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         X = Input.GetAxis("Mouse X") * mouseSpeed;
         Y = Input.GetAxis("Mouse Y") * mouseSpeed;
@@ -33,13 +37,19 @@ public class PlayerMovement : MonoBehaviour {
         velX = Input.GetAxis("Horizontal");
         velY = Input.GetAxis("Vertical");
 
-        if (Input.GetKey("space"))
+        if (Input.GetButtonDown("Jump"))
         {
-            float jumpSpeed = 100.0f;
-            rigid.AddForce(Vector3.up * jumpSpeed);
+            if (touchGround)
+            {
+                rigid.AddForce(Vector3.up * jumpSpeed);
+            }
+            else if (canDoubleJump)
+            {
+                rigid.AddForce(new Vector3(0, jumpSpeed));
+                canDoubleJump = false;
+            }
         }
-
-        Vector3 verticalVel = transform.up * maxVel * velZ;
+        
         Vector3 forwardVel = transform.forward * maxVel * -velX;
         Vector3 horizontalVel = transform.right * maxVel * velY;
         Vector3 sumVel = forwardVel + horizontalVel;
@@ -48,6 +58,26 @@ public class PlayerMovement : MonoBehaviour {
 
         rigid.velocity = sumVel;
 
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            touchGround = true;
+            if (doubleJump)
+            {
+                canDoubleJump = true;
+            }
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            touchGround = false;
+        }
     }
 
 }
