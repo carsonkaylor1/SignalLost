@@ -1,54 +1,17 @@
 fileFormatVersion: 2
-guid: 729fd197fa405884ab84d1ae28df1e1a
+guid: 990e0a596310ed4408e6ce28d1382c88
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Base
-    100002: Base_001
-    100004: Base_wall2
-    100006: Hall_Doorway
-    100008: Highmesh
-    100010: //RootNode
-    100012: Wall
-    100014: Wall_001
-    400000: Base
-    400002: Base_001
-    400004: Base_wall2
-    400006: Hall_Doorway
-    400008: Highmesh
-    400010: //RootNode
-    400012: Wall
-    400014: Wall_001
-    2100000: Material_005
-    2100002: Material_003
-    2100004: Material_004
-    2100006: Material
-    2100008: unnamed
-    2100010: Material_002
-    2300000: Base
-    2300002: Base_001
-    2300004: Base_wall2
-    2300006: Hall_Doorway
-    2300008: Highmesh
-    2300010: Wall
-    2300012: Wall_001
-    3300000: Base
-    3300002: Base_001
-    3300004: Base_wall2
-    3300006: Hall_Doorway
-    3300008: Highmesh
-    3300010: Wall
-    3300012: Wall_001
-    4300000: Wall_001
-    4300002: Base_wall2
-    4300004: Wall
-    4300006: Base_001
-    4300008: Hall_Doorway
-    4300010: Base
-    4300012: Highmesh
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Material_002
+    2100002: Material_001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder_001
     7400000: Default Take
     9500000: //RootNode
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
