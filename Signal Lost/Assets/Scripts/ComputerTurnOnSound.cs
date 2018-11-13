@@ -21,12 +21,10 @@ public class ComputerTurnOnSound : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (soundClip != null)
+        if (soundClip != null) //make sure on error is thrown
         {
             if(!soundSource.isPlaying)
             soundSource.PlayOneShot(soundClip, 0.75f);
-            
-            
         }
 
 

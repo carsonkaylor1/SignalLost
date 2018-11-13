@@ -16,7 +16,7 @@ public class RockLevelSwitch : MonoBehaviour {
             other.gameObject.SetActive(false); //rock disappears
         }
         
-        if (rockCount >= 6) //Loads a new scene when rock count is >= 2
+        if (rockCount >= 6) //Loads a new scene when rock count is >= 6
         {
             SceneManager.LoadScene(levelName);
         }
