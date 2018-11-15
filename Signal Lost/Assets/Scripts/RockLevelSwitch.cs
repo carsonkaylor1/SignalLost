@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RockLevelSwitch : MonoBehaviour {
 
-    public int rockCount = 0;
+    public static int rockCount = 0;
     public string levelName;
 
     void OnTriggerEnter(Collider other)
@@ -16,7 +16,7 @@ public class RockLevelSwitch : MonoBehaviour {
             other.gameObject.SetActive(false); //rock disappears
         }
         
-        if (rockCount >= 2) //Loads a new scene when rock count is >= 2
+        if (rockCount >= 6) //Loads a new scene when rock count is >= 2
         {
             SceneManager.LoadScene(levelName);
         }

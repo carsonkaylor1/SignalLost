@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114018906436084642}
   m_Layer: 0
   m_Name: enemyBasic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1428493115700974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 322.69, y: 101.87, z: 319.42}
+  m_LocalPosition: {x: 67.53, y: 33.39, z: 6.669605}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,10 +114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  MoveSpeed: 4
-  MaxSightDist: 20
-  MaxDist: 10
-  MinDist: 5
+  MoveSpeed: 2
+  MaxSightDist: 30
+  MaxDist: 15
+  MinDist: 1
 --- !u!136 &136298371703089006
 CapsuleCollider:
   m_ObjectHideFlags: 1
