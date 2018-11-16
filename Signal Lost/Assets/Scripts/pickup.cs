@@ -6,24 +6,15 @@ public class pickup : MonoBehaviour
 {
 
     private Rigidbody rb;
-    //reference to PlayerHealth script
     private PlayerHealth p;
     
     public GameObject player;
     public int health = 15;
     public int armor = 0;
     public int lastDamageFrame = 0;
-
-<<<<<<< HEAD
-    // Use this for initialization
-    void Start()
-    {
-=======
-	// Use this for initialization
+    
 	void Start () {
-        //reference to PlayerHealth script
-        p = FindObjectOfType<PlayerHealth>();
->>>>>>> b23533a8963512010c6894f7dbc3589cc9b4c79f
+        p = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -33,74 +24,46 @@ public class pickup : MonoBehaviour
         string objectName = other.name;
         if (other.gameObject.CompareTag("Pick Up")) //create a tag (under the name of an object) and set all pickups to Pick Up
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            switch (objectName)
-=======
-=======
             print("On pickup");
->>>>>>> b23533a8963512010c6894f7dbc3589cc9b4c79f
             if (objectName.Contains("healthUp"))
             {
-                p.healthChange(50);
-                print("Health increased to " + p.currentHealth);
+                if (p.currentHealth == p.maxHealth)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    other.gameObject.SetActive(false);
+                    p.healthChange(50);
+                    print("Health increased to " + p.currentHealth);
+                }
             }
             else if (objectName.Contains("armorUp"))
             {
-                p.armorChange(50);
-                print("Armor increased to " + p.currentArmor);
+                if (p.currentArmor == p.maxArmor)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    other.gameObject.SetActive(false);
+                    p.armorChange(50, other);
+                    print("Armor increased to " + p.currentArmor);
+                }
             }
             else if (objectName.Contains("Double Jump"))
->>>>>>> ae4854b242456042e2446613cf2d825caf737672
             {
                 print("Double Jump acquired");
                 PlayerMovement.doubleJump = true;
+                other.gameObject.SetActive(false);
             }
-            other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Damage"))
         {
             int damVal = 0;
-<<<<<<< HEAD
-            switch (objectName)
+            if (lastDamageFrame + 120 <= Time.frameCount) //2 seconds of invincibility after touching a damage source
             {
-                case "Enemy": //Damage taken on collision with enemy
-                    damVal = 10;
-                    break;
-                case "Bullet":  //Damage taken on collision with enemy projectile
-                    damVal = 5;
-                    break;
-                case "Environment": //Damage taken on collision with hazardous environment
-                    damVal = 7;
-                    break;
-            }
-            if (lastDamageFrame + 300 <= Time.frameCount)
-            {
-                lastDamageFrame = Time.frameCount;
-                if (armor == 0)
-                {
-                    health -= damVal;
-                    if (health <= 0)
-                    {
-                        print("Player is dead");
-                        //player dies.
-                    }
-                }
-                else
-                {
-                    armor -= damVal;
-                    if (armor < 0)
-                    {
-                        armor = 0;
-                    }
-                }
-                other.gameObject.SetActive(false);
-            }
-        }
-=======
-			if (lastDamageFrame + 120 <= Time.frameCount) //2 seconds of invincibility after touching a damage source
-			{
                 if (objectName.Contains("Enemy"))
                 {
                     damVal = 10;
@@ -113,51 +76,15 @@ public class pickup : MonoBehaviour
                 {
                     damVal = 7;
                 }
-				lastDamageFrame = Time.frameCount;
+                lastDamageFrame = Time.frameCount;
                 //Added call to TakeDamage to handle following conditionals
                 p.TakeDamage(damVal);
-                /*
-                //TODO: I think this if/else statement here is also handled in the PlayerHealth script
-				if (armor == 0)
-				{
-					//p.currentHealth -= damVal;
-                    //TODO: I feel like this can be added into PlayerHealth now and handled there
-                    //I had already implemented a "weaker" death there
-					if (health <= 0)
-					{
-						print("Player is dead");
-                        player.SetActive(false);
-                        rb.useGravity = false;
-                        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
-                        GetComponent<PlayerMovement>().enabled = false;
-					}
-                    
-				}
-				else
-				{
-                    // If incoming damage exceeds remaining armor, rollover 
-                    // remaining damage into remaining health 
-                    int remainingDamage = 0;
-                    if (armor < damVal)
-                    {
-                        remainingDamage = damVal - armor;
-                    }
-					armor -= damVal;
-					if (armor < 0)
-					{
-						armor = 0;
-					}
-                    health -= remainingDamage;
-				}
-				//other.gameObject.SetActive(false);
-                */
-			}
-		}
-    }
+            }
+        }    
+	}
+}
 
-    private void OnDamage(Collider other)
+    /*private void OnDamage(Collider other)
     {
         
->>>>>>> ae4854b242456042e2446613cf2d825caf737672
-    }
-}
+    }*/

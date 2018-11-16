@@ -34,15 +34,15 @@ public class EnemyRanged : EnemyBasicAI {
 			transform.LookAt(Player);
 			if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
 			{
-				isMeleeRange = true;
-				if(isMeleeRange == true)
-				{
+				//isMeleeRange = true;
+				//if(isMeleeRange == true)
+				//{
 					print("too close");
 					isRunningAway = true;
 					//if the ranged enemy is too close to the player, run away
 					transform.rotation = Quaternion.LookRotation(transform.position - Player.position);
 					transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-				}
+				//}
 			}
 			if(Vector3.Distance(transform.position,Player.position) > MaxDist && !isCoroutineStarted && !isMeleeRange)
 			{

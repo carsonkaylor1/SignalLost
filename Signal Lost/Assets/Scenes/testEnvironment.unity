@@ -357,6 +357,8 @@ GameObject:
   - component: {fileID: 270229181}
   - component: {fileID: 270229180}
   - component: {fileID: 270229179}
+  - component: {fileID: 270229184}
+  - component: {fileID: 270229183}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Damage
@@ -431,6 +433,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &270229183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270229178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dcbb4e6d731c44c89eec4c64d8e2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  shot: {fileID: 0}
+--- !u!114 &270229184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270229178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc51d0589e2fad42b4112f130af9e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1092224833}
+  MoveSpeed: 1
+  MaxSightDist: 20
+  MaxDist: 20
+  minDist: 0
+  meleeDistance: 5
+  hitTime: 5
+  isMeleeRange: 0
+  shootDistance: 0
+  isMeleeCoStarted: 0
 --- !u!1 &483951432
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +812,7 @@ GameObject:
   - component: {fileID: 1092224832}
   - component: {fileID: 1092224831}
   - component: {fileID: 1092224830}
+  - component: {fileID: 1092224835}
   - component: {fileID: 1092224834}
   m_Layer: 0
   m_Name: SM_Robot_001_Prefab
@@ -854,6 +893,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1092224835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1092224829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008468d904bea8e409a3c39ee175a55f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 10
+  startingArmor: 0
+  maxArmor: 200
+  maxHealth: 200
+  currentArmor: 0
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  armorBar: {fileID: 0}
+  player: {fileID: 1092224829}
 --- !u!1 &1097899410
 GameObject:
   m_ObjectHideFlags: 0
