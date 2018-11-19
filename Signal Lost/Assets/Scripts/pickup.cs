@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pickup : MonoBehaviour {
+public class pickup : MonoBehaviour
+{
 
     private Rigidbody rb;
-    //reference to PlayerHealth script
     private PlayerHealth p;
     
     public GameObject player;
     public int health = 15;
     public int armor = 0;
-	public int lastDamageFrame = 0;
-
-	// Use this for initialization
+    public int lastDamageFrame = 0;
+    
 	void Start () {
-        //reference to PlayerHealth script
-        p = FindObjectOfType<PlayerHealth>();
+        p = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody>();
-	}
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,27 +27,43 @@ public class pickup : MonoBehaviour {
             print("On pickup");
             if (objectName.Contains("healthUp"))
             {
-                p.healthChange(50);
-                print("Health increased to " + p.currentHealth);
+                if (p.currentHealth == p.maxHealth)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    other.gameObject.SetActive(false);
+                    p.healthChange(50);
+                    print("Health increased to " + p.currentHealth);
+                }
             }
             else if (objectName.Contains("armorUp"))
             {
-                p.armorChange(50);
-                print("Armor increased to " + p.currentArmor);
+                if (p.currentArmor == p.maxArmor)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    other.gameObject.SetActive(false);
+                    p.armorChange(50, other);
+                    print("Armor increased to " + p.currentArmor);
+                }
             }
             else if (objectName.Contains("Double Jump"))
             {
                 print("Double Jump acquired");
                 PlayerMovement.doubleJump = true;
+                other.gameObject.SetActive(false);
             }
-            other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Damage"))
         {
             int damVal = 0;
-			if (lastDamageFrame + 120 <= Time.frameCount) //2 seconds of invincibility after touching a damage source
-			{
+            if (lastDamageFrame + 120 <= Time.frameCount) //2 seconds of invincibility after touching a damage source
+            {
                 if (objectName.Contains("Enemy"))
                 {
                     damVal = 10;
@@ -62,50 +76,15 @@ public class pickup : MonoBehaviour {
                 {
                     damVal = 7;
                 }
-				lastDamageFrame = Time.frameCount;
+                lastDamageFrame = Time.frameCount;
                 //Added call to TakeDamage to handle following conditionals
                 p.TakeDamage(damVal);
-                /*
-                //TODO: I think this if/else statement here is also handled in the PlayerHealth script
-				if (armor == 0)
-				{
-					//p.currentHealth -= damVal;
-                    //TODO: I feel like this can be added into PlayerHealth now and handled there
-                    //I had already implemented a "weaker" death there
-					if (health <= 0)
-					{
-						print("Player is dead");
-                        player.SetActive(false);
-                        rb.useGravity = false;
-                        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
-                        GetComponent<PlayerMovement>().enabled = false;
-					}
-                    
-				}
-				else
-				{
-                    // If incoming damage exceeds remaining armor, rollover 
-                    // remaining damage into remaining health 
-                    int remainingDamage = 0;
-                    if (armor < damVal)
-                    {
-                        remainingDamage = damVal - armor;
-                    }
-					armor -= damVal;
-					if (armor < 0)
-					{
-						armor = 0;
-					}
-                    health -= remainingDamage;
-				}
-				//other.gameObject.SetActive(false);
-                */
-			}
-		}
-    }
+            }
+        }    
+	}
+}
 
-    private void OnDamage(Collider other)
+    /*private void OnDamage(Collider other)
     {
         
-    }
-}
+    }*/
