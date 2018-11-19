@@ -9,7 +9,7 @@ public class RockActivate : MonoBehaviour {
 
         if(other.gameObject.CompareTag("BlockRock"))
 
-        if (RockLevelSwitch.rockCount > 2)
+        if (RockLevelSwitch.rockCount > 4)
         {
                 other.gameObject.SetActive(false);
         }
