@@ -34,8 +34,8 @@ public class PlayerMovement : MonoBehaviour {
 
         transform.Rotate(0, X, 0);
 
-        velX = Input.GetAxis("Horizontal");
-        velY = Input.GetAxis("Vertical");
+        velX = Input.GetAxis("Vertical");
+        velY = Input.GetAxis("Horizontal");
 
         
         
