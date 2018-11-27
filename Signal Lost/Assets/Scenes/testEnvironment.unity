@@ -269,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &197033771
 Transform:
   m_ObjectHideFlags: 0
@@ -970,6 +970,7 @@ MonoBehaviour:
   lowestSteerSpeed: 180
   lowestSteerAngle: 90
   highestSteerAngle: 20
+  mouseSpeed: 3
 --- !u!4 &899651721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400018, guid: 2a47fc64f4963aa4e91c888e84a4fe9a,
@@ -2252,7 +2253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1934873378
 Transform:
   m_ObjectHideFlags: 0
