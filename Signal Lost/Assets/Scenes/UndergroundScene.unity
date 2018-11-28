@@ -322,7 +322,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &159527440
 Prefab:
@@ -724,6 +724,7 @@ GameObject:
   - component: {fileID: 484974813}
   - component: {fileID: 484974815}
   - component: {fileID: 484974816}
+  - component: {fileID: 484974817}
   m_Layer: 0
   m_Name: rover2
   m_TagString: Player
@@ -779,7 +780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 484974808}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 34, y: 20.84, z: 10.9}
+  m_LocalPosition: {x: 37.29, y: 21.04, z: 10.09}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 894307845}
@@ -792,12 +793,12 @@ Transform:
   - {fileID: 644924441}
   - {fileID: 1966405469}
   - {fileID: 1030324498}
-  - {fileID: 908728291}
   - {fileID: 522527201}
-  - {fileID: 563136051}
-  - {fileID: 1709059284}
-  - {fileID: 1081949046}
   - {fileID: 1204758665}
+  - {fileID: 563136051}
+  - {fileID: 908728291}
+  - {fileID: 1081949046}
+  - {fileID: 1709059284}
   - {fileID: 2044907579}
   - {fileID: 1480682185}
   - {fileID: 131261722}
@@ -875,6 +876,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb08cc13789a6e4eb0797fe155e6f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &484974817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484974808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05f86af9e712324dafebafaf5a4779d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinx: 0
+  spiny: 0
+  spinz: 10
+  FL: {fileID: 1030324497}
+  FR: {fileID: 522527200}
+  ML: {fileID: 1204758664}
+  MR: {fileID: 563136050}
+  BL: {fileID: 908728290}
+  BR: {fileID: 1081949045}
+  C_FL: {fileID: 1030324501}
+  C_FR: {fileID: 522527206}
+  C_ML: {fileID: 1204758668}
+  C_MR: {fileID: 563136056}
+  C_BL: {fileID: 908728294}
+  C_BR: {fileID: 1081949051}
+  Torque: 400
+  lowestSteerSpeed: 1
+  lowestSteerAngle: 20
+  highestSteerAngle: 35
+  mouseSpeed: 3
 --- !u!1 &489173971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,9 +1069,9 @@ GameObject:
   - component: {fileID: 522527203}
   - component: {fileID: 522527202}
   - component: {fileID: 522527204}
-  - component: {fileID: 522527205}
+  - component: {fileID: 522527206}
   m_Layer: 0
-  m_Name: Cylinder_002
+  m_Name: FrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1089,7 @@ Transform:
   m_LocalScale: {x: 0.605, y: 0.605, z: 0.605}
   m_Children: []
   m_Father: {fileID: 484974812}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &522527202
 MeshRenderer:
@@ -1116,20 +1148,35 @@ CapsuleCollider:
   m_Height: 2.1673656
   m_Direction: 1
   m_Center: {x: 0.0087996125, y: -0.000022709113, z: 0.0082568545}
---- !u!114 &522527205
-MonoBehaviour:
+--- !u!146 &522527206
+WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 522527200}
+  m_Center: {x: 0.1, y: 0, z: 0}
+  m_Radius: 1.3
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f149669fe5a34458e3f6a91fdcec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinx: 0
-  spiny: 0
-  spinz: 10
 --- !u!1 &541642976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,9 +1265,9 @@ GameObject:
   - component: {fileID: 563136053}
   - component: {fileID: 563136052}
   - component: {fileID: 563136054}
-  - component: {fileID: 563136055}
+  - component: {fileID: 563136056}
   m_Layer: 0
-  m_Name: Cylinder_003
+  m_Name: MiddleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1297,20 +1344,35 @@ CapsuleCollider:
   m_Height: 2.1673656
   m_Direction: 1
   m_Center: {x: 0.0087996125, y: -0.000018894416, z: 0.008260669}
---- !u!114 &563136055
-MonoBehaviour:
+--- !u!146 &563136056
+WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 563136050}
+  m_Center: {x: 0.1, y: 0, z: 0}
+  m_Radius: 1.3
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f149669fe5a34458e3f6a91fdcec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinx: 0
-  spiny: 0
-  spinz: 10
 --- !u!1 &613009767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,9 +2414,8 @@ GameObject:
   - component: {fileID: 908728293}
   - component: {fileID: 908728292}
   - component: {fileID: 908728294}
-  - component: {fileID: 908728295}
   m_Layer: 0
-  m_Name: Cylinder_001
+  m_Name: BackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2372,7 +2433,7 @@ Transform:
   m_LocalScale: {x: 0.605, y: 0.605, z: 0.605}
   m_Children: []
   m_Father: {fileID: 484974812}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &908728292
 MeshRenderer:
@@ -2418,33 +2479,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908728290}
   m_Mesh: {fileID: 4300012, guid: 2a47fc64f4963aa4e91c888e84a4fe9a, type: 3}
---- !u!136 &908728294
-CapsuleCollider:
+--- !u!146 &908728294
+WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908728290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Center: {x: 0.1, y: 0, z: 0}
+  m_Radius: 1.3
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
   m_Enabled: 1
-  m_Radius: 1.0812645
-  m_Height: 2.1673665
-  m_Direction: 1
-  m_Center: {x: 0.008799615, y: -0.000041782405, z: 0.008268301}
---- !u!114 &908728295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 908728290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f149669fe5a34458e3f6a91fdcec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinx: 0
-  spiny: 0
-  spinz: 10
 --- !u!1 &908895617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1909547809866422, guid: ed8bf7796458a064991339fadfe64d8a,
@@ -2603,9 +2666,8 @@ GameObject:
   - component: {fileID: 1030324500}
   - component: {fileID: 1030324499}
   - component: {fileID: 1030324501}
-  - component: {fileID: 1030324502}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: FrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2669,33 +2731,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1030324497}
   m_Mesh: {fileID: 4300014, guid: 2a47fc64f4963aa4e91c888e84a4fe9a, type: 3}
---- !u!136 &1030324501
-CapsuleCollider:
+--- !u!146 &1030324501
+WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1030324497}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Center: {x: 0.1, y: 0, z: 0}
+  m_Radius: 1.3
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
   m_Enabled: 1
-  m_Radius: 1.0812645
-  m_Height: 2.1673665
-  m_Direction: 1
-  m_Center: {x: 0.008799615, y: -0.00003415301, z: 0.008264487}
---- !u!114 &1030324502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1030324497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f149669fe5a34458e3f6a91fdcec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinx: 0
-  spiny: 0
-  spinz: 10
 --- !u!1 &1081949045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,10 +2771,10 @@ GameObject:
   - component: {fileID: 1081949046}
   - component: {fileID: 1081949048}
   - component: {fileID: 1081949047}
-  - component: {fileID: 1081949050}
   - component: {fileID: 1081949049}
+  - component: {fileID: 1081949051}
   m_Layer: 0
-  m_Name: Cylinder_005
+  m_Name: BackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2787,20 +2851,35 @@ CapsuleCollider:
   m_Height: 2.1673656
   m_Direction: 1
   m_Center: {x: 0.0087996125, y: -0.000018894416, z: 0.0082568545}
---- !u!114 &1081949050
-MonoBehaviour:
+--- !u!146 &1081949051
+WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081949045}
+  m_Center: {x: 0.1, y: 0, z: 0}
+  m_Radius: 1.3
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f149669fe5a34458e3f6a91fdcec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinx: 0
-  spiny: 0
-  spinz: 10
 --- !u!1 &1089220749 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5534a85f98f85d9449c7b5d3ecfbafce,
@@ -2846,7 +2925,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1113357257}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.986215, y: 2.9337323, z: -1.8414532}
+  m_LocalPosition: {x: -2.85, y: 3.19, z: -1.84}
   m_LocalScale: {x: 0.19657828, y: 0.19657828, z: 0.19657828}
   m_Children: []
   m_Father: {fileID: 484974812}
@@ -3045,10 +3124,9 @@ GameObject:
   - component: {fileID: 1204758665}
   - component: {fileID: 1204758667}
   - component: {fileID: 1204758666}
-  - component: {fileID: 1204758669}
   - component: {fileID: 1204758668}
   m_Layer: 0
-  m_Name: Cylinder_006
+  m_Name: MiddleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3066,7 +3144,7 @@ Transform:
   m_LocalScale: {x: 0.605, y: 0.605, z: 0.605}
   m_Children: []
   m_Father: {fileID: 484974812}
-  m_RootOrder: 15
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1204758666
 MeshRenderer:
@@ -3112,33 +3190,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204758664}
   m_Mesh: {fileID: 4300022, guid: 2a47fc64f4963aa4e91c888e84a4fe9a, type: 3}
---- !u!136 &1204758668
-CapsuleCollider:
+--- !u!146 &1204758668
+WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204758664}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Center: {x: 0.1, y: 0, z: 0}
+  m_Radius: 1.3
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
   m_Enabled: 1
-  m_Radius: 1.0812645
-  m_Height: 2.1673665
-  m_Direction: 1
-  m_Center: {x: 0.008799615, y: -0.00003415301, z: 0.008268301}
---- !u!114 &1204758669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1204758664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f149669fe5a34458e3f6a91fdcec8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spinx: 0
-  spiny: 0
-  spinz: 10
 --- !u!1 &1205015544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,7 +4485,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 484974812}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1709059285
 MeshRenderer:
