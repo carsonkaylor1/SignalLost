@@ -83,8 +83,3 @@ public class pickup : MonoBehaviour
         }    
 	}
 }
-
-    /*private void OnDamage(Collider other)
-    {
-        
-    }*/
