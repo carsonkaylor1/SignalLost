@@ -34,8 +34,17 @@ public class PlayerMovement : MonoBehaviour {
 
         transform.Rotate(0, X, 0);
 
-        velX = Input.GetAxis("Horizontal");
-        velY = Input.GetAxis("Vertical");
+        velX = Input.GetAxis("Vertical");
+        velY = Input.GetAxis("Horizontal");
+
+        
+        
+        Vector3 forwardVel = transform.forward * maxVel * -velX;
+        Vector3 horizontalVel = transform.right * maxVel * velY;
+        Vector3 sumVel = forwardVel + horizontalVel;
+
+        sumVel.y = rigid.velocity.y;
+        rigid.velocity = sumVel;
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -45,18 +54,13 @@ public class PlayerMovement : MonoBehaviour {
             }
             else if (canDoubleJump)
             {
-                rigid.AddForce(new Vector3(0, jumpSpeed));
+                rigid.velocity = new Vector3(0, 0, 0);
+                rigid.AddForce(Vector3.up * jumpSpeed);
                 canDoubleJump = false;
             }
         }
-        
-        Vector3 forwardVel = transform.forward * maxVel * -velX;
-        Vector3 horizontalVel = transform.right * maxVel * velY;
-        Vector3 sumVel = forwardVel + horizontalVel;
 
-        sumVel.y = rigid.velocity.y;
-
-        rigid.velocity = sumVel;
+        //rigid.velocity = sumVel;
 
     }
 
