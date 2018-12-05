@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //rigid.velocity = sumVel;
-
+       
     }
 
     void OnCollisionEnter(Collision other)
