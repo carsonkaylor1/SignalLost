@@ -7,7 +7,6 @@ public class LightBlink : MonoBehaviour {
     public float timeOff;
     private float changeTime = 1;
     public Light lightSource;
-    public float timer = 1.0f;
 	// Use this for initialization
 	void Start () {
 		
