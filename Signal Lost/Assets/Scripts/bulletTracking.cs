@@ -16,7 +16,7 @@ public class bulletTracking : MonoBehaviour {
     private void onTriggerEnter(Collider other)
     {
         string objectName = other.name;
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("turret"))
         {
             transform.LookAt(other.transform);
             rigid.transform.position += transform.forward * MoveSpeed * Time.deltaTime;
