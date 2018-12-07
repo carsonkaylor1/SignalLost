@@ -12,16 +12,19 @@ public class turrets : MonoBehaviour {
 	public GameObject bossRoom;
 	public GameObject movePoint;
 	public Transform room;
-	public Transform player;
+	public Transform playerLoc;
+	public GameObject player;
 	public List<GameObject> activeTurrets = new List<GameObject>(); 
+	public List<GameObject> movePoints =  new List<GameObject>();
 
-	public int speed = 3;
+	public int speed = 10;
 
 	// Use this for initialization
 	void Start () {
 	
 		//SpawnMovePoint();
-
+		player = GameObject.FindGameObjectWithTag("Player");
+		playerLoc = player.transform;
 		isPlayerAlive = true;
 		//Find how many turrets there are, create array of appropriate size and then
 		//add them all to a list of active turrets
@@ -34,8 +37,11 @@ public class turrets : MonoBehaviour {
 			print("adding " + numTurrArr[i].name);
 			//activeTurrets[i].AddComponent<turretBehavior>();
 		}
-		//Vector3 randLoc = Random.onUnitSphere;
-		//movePoint.transform.position = randLoc + transform.localPosition;
+		// for(int i = 0; i < numTurrArrLen; i++)
+		// {
+		// 	movePoints.Add()
+		// }
+		
 		StartCoroutine(Move());
 	}
 	
