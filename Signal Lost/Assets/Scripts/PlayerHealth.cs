@@ -108,12 +108,15 @@ public class PlayerHealth : MonoBehaviour {
 	void PlayerDeath()
 	{
 		isDead = true;
+		//TODO
+		//FindObjectOfType<GameManager>().EndGame();
 		print("You're dead");
         /*Rigidbody rb = player.GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;*/
         GetComponent<PlayerMovement>().enabled = false;
         player.SetActive(false);
+		
     }
 
 

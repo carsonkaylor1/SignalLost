@@ -17,7 +17,15 @@ public class GameManager : MonoBehaviour {
 
 	void Restart()
 	{
-		SceneManager.LoadScene(0);
+		if(SceneManager.GetActiveScene().name == "MainEnvironment")
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+		else
+		{
+			SceneManager.LoadScene(0);
+		}
+		
 	}
 	
 }
