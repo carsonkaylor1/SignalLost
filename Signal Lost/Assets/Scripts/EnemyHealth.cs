@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	// Instance of shoot script
 	public Shoot shot;
+	//public turretBehavior turretBehavior;
 	
 	
 	CapsuleCollider capsuleCollider; // Reference the capsule collider
@@ -51,11 +52,13 @@ public class EnemyHealth : MonoBehaviour {
 	// This function is called whenever there is a collision detected
 	public void OnCollisionEnter(Collision col)
 	{
+		Debug.Log("Collide");
 		// If the object colliding with Enemy is tagged "projectile"
 		if(col.gameObject.tag == "Projectile")
 		{
 			// Get the amount of damage (from the Shoot script) this particular projectile inflicts and damage enemy
 			int dmgTaken = shot.dmg;
+			//int dmgTaken2 = turretBehavior.dmg;
 			TakeDamage(dmgTaken);
 			
 			print("Enemy took " + dmgTaken + " damage.");
