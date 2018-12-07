@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour {
 	public RectTransform armorBar;
 	public GameObject player;
 	private EnemyRanged enemyRanged;
+	public turretBehavior turretBehavior;
 
 
 	bool isDead = false;
@@ -107,12 +108,15 @@ public class PlayerHealth : MonoBehaviour {
 	void PlayerDeath()
 	{
 		isDead = true;
+		//TODO
+		//FindObjectOfType<GameManager>().EndGame();
 		print("You're dead");
         /*Rigidbody rb = player.GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;*/
         GetComponent<PlayerMovement>().enabled = false;
         player.SetActive(false);
+		
     }
 
 
@@ -125,7 +129,7 @@ public class PlayerHealth : MonoBehaviour {
 		{
 			// Get the amount of damage (from the Shoot script) this particular projectile inflicts and damage enemy
 			int dmgTaken = enemyRanged.dmg;
-			
+			//int dmgTaken2 = turretBehavior.dmg;
 			TakeDamage(dmgTaken);
 			//print("You took " + dmgTaken + " damage.");
 		}

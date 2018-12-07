@@ -37,7 +37,8 @@ public class Shoot : MonoBehaviour {
 
 		// Get the rigidbody for the projectile so we can apply force to it
 		Rigidbody projectile = tempProjectile.GetComponent<Rigidbody>();
-
+		//Quaternion rot = new Quaternion(90,0,0,0);
+		//projectile.rotation = rot;
 		// Apply velocity to created projectle gameobject to move from the tip of shooting point at desired speed
 		projectile.velocity = shootingPoint.transform.forward * projectileSpeed;
 

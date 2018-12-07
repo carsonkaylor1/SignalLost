@@ -7,6 +7,7 @@ public class turretBehavior : MonoBehaviour {
 	public GameObject projectile;
 	public GameObject shootPoint1;
 	public GameObject shootPoint2;
+	public GameObject PlayerHealth;
 
 	public int shootTime = 20;
 	public int projectileSpeed = 5;
@@ -64,4 +65,12 @@ public class turretBehavior : MonoBehaviour {
 		// Destroys the projectile after specified amount of time
 		Destroy(toBeDestroyed,10);
 	}
+
+	// private void OnCollisionEnter(Collision other) 
+	// {
+	// 	if(other.gameObject.tag == "Player")
+	// 	{
+	// 		PlayerHealth.GetComponent<PlayerHealth>().TakeDamage(dmg);
+	// 	}
+	// }
 }
