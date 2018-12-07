@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -845,6 +845,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e195358636a8c04b9c912aae0127884, type: 3}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
 --- !u!1 &2096441056
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +970,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+--- !u!1001 &1917027727
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 97.33914
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 352.804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 289.02325
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258579803014196, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114633385536311956, guid: f546791ca03ae0f4881b9bcb43801c60,
+        type: 2}
+      propertyPath: bossRoom
+      value: 
+      objectReference: {fileID: 155849194}
+    - target: {fileID: 114633385536311956, guid: f546791ca03ae0f4881b9bcb43801c60,
+        type: 2}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 155849200}
+    - target: {fileID: 114633385536311956, guid: f546791ca03ae0f4881b9bcb43801c60,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1784655716}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f546791ca03ae0f4881b9bcb43801c60, type: 2}
+  m_IsPrefabAsset: 0
+>>>>>>> 77f44a036e5b650d9bf80aad345651af6e0ba692
 --- !u!1001 &2098838552
 Prefab:
   m_ObjectHideFlags: 0

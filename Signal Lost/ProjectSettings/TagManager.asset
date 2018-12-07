@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - computer
+  - turret
+  - turretAdded
+  - Enemy
+  - Projectile
+  - movement
   layers:
   - Default
   - TransparentFX
