@@ -56,7 +56,7 @@ public class turrets : MonoBehaviour {
 		{
 			foreach (var turret in activeTurrets)
 			{
-				turret.transform.LookAt(player);
+				//turret.transform.LookAt(player);
 				turret.transform.Rotate(new Vector3(-95,0,-140));
 				turret.transform.position = Vector3.MoveTowards(turret.transform.position, movePoint.transform.position, step);
 			}
